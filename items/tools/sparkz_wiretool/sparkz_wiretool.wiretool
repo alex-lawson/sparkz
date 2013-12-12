@@ -4,9 +4,9 @@
   "dropCollision" : [-4.0, -3.0, 4.0, 3.0],
   "maxStack" : 1,
   "rarity" : "Uncommon",
-  "description" : "Built to place optical wires between input points.",
+  "description" : "Connects object control nodes with optical wires.",
   "shortdescription" : "Wiring Tool",
-  "largeImage" : "sparkz_wiretool.png",
+  "largeImage" : "sparkz_wiretoolbig.png",
   "inspectionKind" : "tool",
 
   "image" : "sparkz_wiretool.png",

@@ -1,0 +1,64 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "orientationState" : {
+        "default" : "all",
+        "states" : {
+          "all" : {
+            "frames" : 1
+          },
+          "left" : {
+            "frames" : 1
+          },
+          "right" : {
+            "frames" : 1
+          },
+          "top" : {
+            "frames" : 1
+          },
+          "bottom" : {
+            "frames" : 1
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "sensor" : {
+        "properties" : {
+          "centered" : false
+        },
+
+        "partStates" : {
+          "orientationState" : {
+            "all" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.all"
+              }
+            },
+            "left" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.left"
+              }
+            },
+            "right" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.right"
+              }
+            },
+            "top" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.top"
+              }
+            },
+            "bottom" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.bottom"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

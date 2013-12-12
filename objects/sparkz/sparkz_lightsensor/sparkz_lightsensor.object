@@ -1,0 +1,65 @@
+{
+  "objectName" : "sparkz_lightsensor",
+  "objectType" : "wire",
+  "rarity" : "Common",
+  "category" : "light",
+  "printable" : false,
+  "price" : 100,
+  "description" : "Monitors the light level at a location. Left output will trigger for dim lights, right output for bright.",
+  "shortdescription" : "Light Sensor",
+  "race" : "generic",
+
+  "inventoryIcon" : "sparkz_lightsensoricon.png",
+
+  "orientations" : [
+    {
+      "image" : "sparkz_lightsensor.png:default.all",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    },
+    {
+      "image" : "sparkz_lightsensor.png:default.all",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "top" ]
+    },
+    {
+      "image" : "sparkz_lightsensor.png:default.all",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left" ]
+    },
+    {
+      "image" : "sparkz_lightsensor.png:default.all",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "right" ]
+    },
+    {
+      "image" : "sparkz_lightsensor.png:default.all",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+  ],
+
+  "scripts" : [ "/objects/sparkz/sparkz_lightsensor.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "/objects/sparkz/sparkz_lightsensor/sparkz_lightsensor.animation",
+  "animationParts" : {
+    "sensor" : "sparkz_lightsensor.png"
+  },
+  "animationPosition" : [0, 0],
+
+  "outboundNodes" : [ [-1, 0], [1, 0] ],
+
+  "detectThresholdLow" : 0.15,
+  "detectThresholdHigh" : 0.5
+}
