@@ -1,0 +1,41 @@
+{
+  "objectName" : "sparkz_wiringstation",
+  "rarity" : "Common",
+  "objectType" : "interactable",
+  "interactAction" : "OpenCraftingInterface",
+  "interactData" : {
+    "config" : "/interface/windowconfig/sparkz_wiringstation.config",
+    "filter" : [ "sparkz" ]
+  },
+  "printable" : false,
+  "description" : "A nice little bench for all your wiring projects.",
+  "shortdescription" : "Wiring Station",
+  "race" : "generic",
+  "category" : "crafting",
+  "price" : "300",
+
+  "inventoryIcon" : "sparkz_wiringstationicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "sparkz_wiringstation.png",
+
+      "imagePosition" : [-16, 0],
+      "frames" : 1,
+      "animationCycle" : 1.0,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "learnBlueprintsOnPickup" : [
+    "sparkz_wiretool",
+    "sparkz_smallfloorbutton",
+    "sparkz_largefloorbutton",
+    "sparkz_smallwallswitch",
+    "sparkz_smallwallbutton",
+    "sparkz_pressureplate",
+    "sparkz_alarm"
+  ]
+}

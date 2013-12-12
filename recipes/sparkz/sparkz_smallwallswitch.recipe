@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "ironbar", "count" : 1 },
+    { "item" : "petalred", "count" : 1 }
+  ],
+  "output" : {
+    "item" : "sparkz_smallwallswitch",
+    "count" : 1
+  },
+  "groups" : [ "sparkz" ]
+}

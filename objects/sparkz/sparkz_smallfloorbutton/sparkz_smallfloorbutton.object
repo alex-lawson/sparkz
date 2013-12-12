@@ -1,0 +1,35 @@
+{
+  "objectName" : "sparkz_smallfloorbutton",
+  "rarity" : "Common",
+  "objectType" : "wire",
+
+  "category" : "wire",
+  "price" : "400",
+  "description" : "Pushing it might be fun, at least for a moment.",
+  "shortdescription" : "Small Floor Button",
+  "race" : "generic",
+
+  "inventoryIcon" : "sparkz_smallfloorbuttonicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "sparkz_smallfloorbutton.png:<color>.off",
+      "imagePosition" : [-6, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "scripts" : [ "/objects/sparkz/sparkz_momentaryswitch.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "/objects/sparkz/sparkz_switchtoggle.animation",
+  "animationParts" : {
+    "switch" : "sparkz_smallfloorbutton.png"
+  },
+  "animationPosition" : [-6, 0],
+
+  "outboundNodes" : [ [0, 0] ],
+
+  "interval" : 13
+}

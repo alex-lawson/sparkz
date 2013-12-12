@@ -1,0 +1,37 @@
+{
+  "objectName" : "sparkz_smallwallswitch",
+  "rarity" : "Common",
+  "objectType" : "wire",
+  "description" : "Flippin' awesome.",
+  "shortdescription" : "Small Wall Switch",
+  "race" : "generic",
+
+  "category" : "wire",
+  "price" : "300",
+
+  "inventoryIcon" : "sparkz_smallwallswitchicon.png",
+  "orientations" : [
+    {
+      "image" : "sparkz_smallwallswitch.png:<color>.off",
+      "imagePosition" : [-8, -8],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+  ],
+
+  "scripts" : [ "/objects/sparkz/sparkz_toggleswitch.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "/objects/sparkz/sparkz_switchtoggle.animation",
+
+  "animationParts" : {
+    "switch" : "sparkz_smallwallswitch.png"
+  },
+  "animationPosition" : [-8, -8],
+
+  "inboundNodes" : [ [-1, 0] ],
+  "outboundNodes" : [ [0, -1] ],
+
+  "interval" : 13
+}

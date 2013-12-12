@@ -1,0 +1,10 @@
+{
+  "input" : [
+    { "item" : "ironbar", "count" : 2 }
+  ],
+  "output" : {
+    "item" : "sparkz_pressureplate",
+    "count" : 1
+  },
+  "groups" : [ "sparkz" ]
+}

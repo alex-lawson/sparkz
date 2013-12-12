@@ -1,0 +1,48 @@
+{
+  "objectName" : "sparkz_alarm",
+  "rarity" : "Common",
+  "objectType" : "wire",
+  "category" : "light",
+  "price" : "500",
+  "description" : "If you experience epileptic seizures or other light-induced trauma, discontinue use immediately.",
+  "shortdescription" : "Alarm",
+  "race" : "apex",
+
+  "lightColors" : {
+    "default" : [247, 123, 123],
+    "red" : [247, 123, 123],
+    "pink" : [247, 123, 123],
+    "blue" : [155, 200, 255],
+    "green" : [190, 247, 130],
+    "yellow" : [255, 217, 124],
+    "orange" : [255, 182, 128],
+    "black" : [248, 125, 222],
+    "white" : [228, 255, 255]
+  },
+
+  "inventoryIcon" : "sparkz_alarmicon.png",
+  "orientations" : [
+    {
+      "image" : "sparkz_alarm.png:<color>.off",
+      "imagePosition" : [-8, -8],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "top" ]
+    }
+  ],
+
+  "scripts" : [ "/objects/sparkz/sparkz_alarm.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "/objects/sparkz/sparkz_alarm/sparkz_alarm.animation",
+
+  "animationParts" : {
+    "alarm" : "sparkz_alarm.png"
+  },
+  "animationPosition" : [-8, -8],
+
+  "inboundNodes" : [ [0, 0] ],
+
+  "alertSounds" : [ "/sfx/objects/redalert.wav" ],
+  "alertSoundDuration" : 0.65
+}

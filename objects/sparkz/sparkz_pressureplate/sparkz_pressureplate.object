@@ -1,0 +1,36 @@
+{
+  "objectName" : "sparkz_pressureplate",
+  "rarity" : "Common",
+  "objectType" : "wire",
+
+  "category" : "wire",
+  "price" : "800",
+  "description" : "Watch your step!",
+  "shortdescription" : "Pressure Plate",
+  "race" : "generic",
+
+  "inventoryIcon" : "sparkz_pressureplateicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "sparkz_pressureplate.png:<color>.off",
+      "imagePosition" : [-8, -8],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "scripts" : [ "/objects/sparkz/sparkz_pressureplate.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "/objects/sparkz/sparkz_switchtoggle.animation",
+  "animationParts" : {
+    "switch" : "sparkz_pressureplate.png"
+  },
+  "animationPosition" : [-8, -8],
+
+  "outboundNodes" : [ [0, -1] ],
+
+  "detectTickDuration" : 8,
+  "detectRadius" : 2
+}
