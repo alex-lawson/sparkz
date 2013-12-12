@@ -1,0 +1,12 @@
+{
+  "input" : [
+    { "item" : "ironbar", "count" : 1 },
+    { "item" : "petalblue", "count" : 2 },
+    { "item" : "glassmaterial", "count" : 3}
+  ],
+  "output" : {
+    "item" : "sparkz_lightsensor",
+    "count" : 1
+  },
+  "groups" : [ "sparkz" ]
+}

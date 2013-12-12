@@ -1,0 +1,10 @@
+{
+  "input" : [
+    { "item" : "ironbar", "count" : 3 }
+  ],
+  "output" : {
+    "item" : "sparkz_endlesswater",
+    "count" : 1
+  },
+  "groups" : [ "sparkz" ]
+}

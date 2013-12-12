@@ -1,6 +1,6 @@
 Sparkz, a player-created mod for Starbound.
 
-Latest release: v0.9, for Starbound Beta v Indignant Koala 11/12/2013
+Latest release: v1.0, for Starbound Beta v Indignant Koala 11/12/2013
 
 This mod was created to add wiring and logic functionality above and beyond that which is available in the vanilla game, by adding a variety of wire-interactive sensors, logic blocks, and actuators. To access the vanilla logic gates (until they are officially implemented) use my previous mod, Logic 101, available at http://www.nexusmods.com/starbound/mods/46/
 
@@ -15,6 +15,9 @@ FEATURES
 -New Object: Large Floor Button (a momentary switch)
 -New Object: Pressure Plate (a momentary switch which also triggers when players/items/monsters touch it)
 -New Object: Alarm (a ceiling fixture which plays sound and animation when it receives a wire signal)
+-New Object: Light Sensor (detects two different levels of light)
+-New Object: Water Source Pipe (creates water when powered. lots of water.)
+-New Object: Drain (drains water when powered)
 
 USAGE
 Currently, all recipes in this mod are crafted from the Wiring Station. Obtaining the Wiring Station itself without file editing requires the Tabula Rasa mod. If you want to edit into an existing player file without using Tabula Rasa, the item name is "sparkz_wiringstation"
@@ -32,9 +35,15 @@ See http://community.playstarbound.com/index.php?threads/the-proper-way-to-insta
 
 CREDITS/ACKNOWLEDGEMENTS
 -Many scripts and assets taken with or without modification from the Starbound base assets. Much of the credit for this mod goes to the excellent development team at Chucklefish
--Wiring Station graphics by talc
+-Graphics that aren't stolen from default assets and don't look like crap are by talc
 
 VERSION HISTORY
+
+v1.0
+-New graphics for Wiring Station and Wire Tool
+-Added Water Source Pipe
+-Added Drain
+-Added Light Sensor
 
 v0.9
 -Added Alarm
