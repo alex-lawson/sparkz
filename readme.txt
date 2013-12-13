@@ -16,8 +16,10 @@ FEATURES
 -New Object: Pressure Plate (a momentary switch which also triggers when players/items/monsters touch it)
 -New Object: Alarm (a ceiling fixture which plays sound and animation when it receives a wire signal)
 -New Object: Light Sensor (detects two different levels of light)
--New Object: Water Source Pipe (creates water when powered. lots of water.)
--New Object: Drain (drains water when powered)
+-New Object: Water Source Pipe (creates water when powered)
+-New Object: Poison Source Pipe (creates poison when powered)
+-New Object: Lava Source Pipe (creates lava when powered)
+-New Object: Drain (drains liquids when powered)
 
 USAGE
 Currently, all recipes in this mod are crafted from the Wiring Station. Obtaining the Wiring Station itself without file editing requires the Tabula Rasa mod. If you want to edit into an existing player file without using Tabula Rasa, the item name is "sparkz_wiringstation"
@@ -41,7 +43,7 @@ VERSION HISTORY
 
 v1.0
 -New graphics for Wiring Station and Wire Tool
--Added Water Source Pipe
+-Added Water, Lava, and Poison Source Pipes
 -Added Drain
 -Added Light Sensor
 
