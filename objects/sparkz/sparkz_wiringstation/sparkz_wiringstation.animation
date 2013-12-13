@@ -15,18 +15,6 @@
           },
           "both" : {
             "frames" : 1
-          },
-          "flipoff" : {
-            "frames" : 1
-          },
-          "flipleft" : {
-            "frames" : 1
-          },
-          "flipright" : {
-            "frames" : 1
-          },
-          "flipboth" : {
-            "frames" : 1
           }
         }
       }
@@ -58,26 +46,6 @@
             "both" : {
               "properties" : {
                 "image" : "<partImage>:<color>.both"
-              }
-            },
-            "flipoff" : {
-              "properties" : {
-                "image" : "<partImage>:<color>.flipoff"
-              }
-            },
-            "flipleft" : {
-              "properties" : {
-                "image" : "<partImage>:<color>.flipleft"
-              }
-            },
-            "flipright" : {
-              "properties" : {
-                "image" : "<partImage>:<color>.flipright"
-              }
-            },
-            "flipboth" : {
-              "properties" : {
-                "image" : "<partImage>:<color>.flipboth"
               }
             }
           }

@@ -6,12 +6,6 @@ function init(args)
   else
     output(storage.state)
   end
-
-  if object.direction() == 1 then
-    object.outLR = {"left", "right"}
-  else
-    object.outLR = {"right", "left"}
-  end
 end
 
 function onInteraction(args)
@@ -22,9 +16,9 @@ function checkInboundNodes()
   if not object.getInboundNodeLevel(0) and not object.getInboundNodeLevel(1) then
     output("off")
   elseif object.getInboundNodeLevel(0) and not object.getInboundNodeLevel(1) then
-    output(object.outLR[1])
+    output("left")
   elseif not object.getInboundNodeLevel(0) and object.getInboundNodeLevel(1) then
-    output(object.outLR[2])
+    output("right")
   else
     output("both")
   end
@@ -33,13 +27,6 @@ end
 function output(state)
   if state ~= storage.state then
     storage.state = state
-    
-    if object.direction() == -1 then
-      state = "flip"..state
-    end
-    
-    world.logInfo("Setting state to "..state.." since direction is "..object.direction())
-
     object.setAnimationState("lightState", state )
   end
 end
