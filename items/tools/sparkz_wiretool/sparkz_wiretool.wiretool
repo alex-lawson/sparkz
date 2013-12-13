@@ -12,6 +12,6 @@
   "image" : "sparkz_wiretool.png",
   "handPosition" : [-4, 0],
   "fireTime" : 0.25,
-  "twoHanded" : false,
+  "twoHanded" : true,
   "strikeSound" : "/sfx/tools/wiretool.wav"
 }
