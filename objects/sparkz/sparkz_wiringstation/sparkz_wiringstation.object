@@ -2,11 +2,6 @@
   "objectName" : "sparkz_wiringstation",
   "rarity" : "Common",
   "objectType" : "wire",
-  "interactAction" : "OpenCraftingInterface",
-  "interactData" : {
-    "config" : "/interface/windowconfig/sparkz_wiringstation.config",
-    "filter" : [ "sparkz" ]
-  },
   "printable" : false,
   "description" : "A nice little bench for all your wiring projects.",
   "shortdescription" : "Wiring Station",
