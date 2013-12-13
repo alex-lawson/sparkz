@@ -60,6 +60,6 @@
 
   "outboundNodes" : [ [-1, 0], [1, 0] ],
 
-  "detectThresholdLow" : 0.15,
+  "detectThresholdLow" : 0.01,
   "detectThresholdHigh" : 0.5
 }

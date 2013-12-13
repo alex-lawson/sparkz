@@ -6,7 +6,7 @@ function init(args)
 end
 
 function trigger()
-  object.setAllOutboundNodes(5)
+  object.setAllOutboundNodes(true)
   object.setAnimationState("switchState", "on")
   self.countdown = object.configParameter("detectTickDuration")
 end

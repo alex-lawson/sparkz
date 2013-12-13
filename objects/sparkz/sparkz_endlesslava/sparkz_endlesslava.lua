@@ -21,7 +21,7 @@ function main(args)
   if object.getInboundNodeLevel(0) then
     output(true)
 
-    world.spawnProjectile("sparkz_water", {object.position()[1] + 0.5, object.position()[2]}, object.id(), {0, 1}, false, {})
+    world.spawnProjectile("sparkz_lava", {object.position()[1] + 0.5, object.position()[2]}, object.id(), {0, 1}, false, {})
   else
     output(false)
   end

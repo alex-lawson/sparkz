@@ -1,0 +1,10 @@
+{
+  "input" : [
+    { "item" : "money", "count" : 0 }
+  ],
+  "output" : {
+    "item" : "sparkz_endlesslava",
+    "count" : 1
+  },
+  "groups" : [ "sparkz" ]
+}

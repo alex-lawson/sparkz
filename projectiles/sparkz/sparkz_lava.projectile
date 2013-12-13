@@ -1,5 +1,5 @@
 {
-  "projectileName" : "sparkz_water",
+  "projectileName" : "sparkz_lava",
   "physics" : "grenade",
   "level" : 1,
   "frames" : "invisibleprojectile.png",
@@ -12,7 +12,8 @@
   "actionOnReap" : [
     {
       "action" : "water",
-      "quantity" : 3000
+      "quantity" : 3000,
+      "liquidId" : 3
     }
   ],
   "damageKind" : "default"

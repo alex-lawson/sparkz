@@ -1,0 +1,35 @@
+{
+  "objectName" : "sparkz_endlesspoison",
+  "rarity" : "Common",
+  "objectType" : "wire",
+  "description" : "WHERE IS ALL THIS POISON COMING FROM???",
+  "shortdescription" : "Poison Source Pipe",
+  "race" : "generic",
+
+  "category" : "wire",
+  "price" : "300",
+
+  "inventoryIcon" : "sparkz_endlesspoisonicon.png",
+  "orientations" : [
+    {
+      "image" : "sparkz_endlesspoison.png:<color>.off",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "top" ],
+      "collision" : "solid"
+    }
+  ],
+
+  "scripts" : [ "/objects/sparkz/sparkz_endlesspoison/sparkz_endlesspoison.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "/objects/sparkz/sparkz_endlesspoison/sparkz_endlesspoison.animation",
+
+  "animationParts" : {
+    "fountain" : "sparkz_endlesspoison.png"
+  },
+  "animationPosition" : [0, 0],
+
+  "inboundNodes" : [ [-1, 0] ]
+}
