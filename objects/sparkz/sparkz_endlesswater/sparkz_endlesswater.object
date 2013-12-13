@@ -31,7 +31,5 @@
   },
   "animationPosition" : [0, 0],
 
-  "inboundNodes" : [ [-1, 0] ],
-
-  "interval" : 0.2
+  "inboundNodes" : [ [-1, 0] ]
 }

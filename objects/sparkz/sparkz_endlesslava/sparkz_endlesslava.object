@@ -1,0 +1,35 @@
+{
+  "objectName" : "sparkz_endlesslava",
+  "rarity" : "Common",
+  "objectType" : "wire",
+  "description" : "WHERE IS ALL THIS LAVA COMING FROM???",
+  "shortdescription" : "Lava Source Pipe",
+  "race" : "generic",
+
+  "category" : "wire",
+  "price" : "300",
+
+  "inventoryIcon" : "sparkz_endlesslavaicon.png",
+  "orientations" : [
+    {
+      "image" : "sparkz_endlesslava.png:<color>.off",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "top" ],
+      "collision" : "solid"
+    }
+  ],
+
+  "scripts" : [ "/objects/sparkz/sparkz_endlesslava/sparkz_endlesslava.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "/objects/sparkz/sparkz_endlesslava/sparkz_endlesslava.animation",
+
+  "animationParts" : {
+    "fountain" : "sparkz_endlesslava.png"
+  },
+  "animationPosition" : [0, 0],
+
+  "inboundNodes" : [ [-1, 0] ]
+}

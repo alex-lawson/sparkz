@@ -1,6 +1,10 @@
 function init(args)
   object.alarmSoundTimer = 0
 
+  if storage.alarmSoundDuration == nil then
+    storage.alarmSoundDuration = object.configParameter("alertSoundDuration")
+  end
+
   if storage.state == nil then
     output(false)
   else
@@ -22,15 +26,13 @@ function output(state)
 end
 
 function main(args)
-  world.logInfo(object.getInboundNodeLevel(0))
-
   if object.getInboundNodeLevel(0) then
     output(true)
 
     object.alarmSoundTimer = object.alarmSoundTimer - object.dt()
     if object.alarmSoundTimer <= 0 then
       object.playSound("alertSounds")
-      object.alarmSoundTimer = object.configParameter("alertSoundDuration")
+      object.alarmSoundTimer = storage.alarmSoundDuration
     end
   else
     output(false)

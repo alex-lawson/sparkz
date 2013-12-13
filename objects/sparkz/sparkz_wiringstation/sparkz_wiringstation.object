@@ -27,15 +27,5 @@
       "anchors" : [ "bottom" ]
 
     }
-  ],
-
-  "learnBlueprintsOnPickup" : [
-    "sparkz_wiretool",
-    "sparkz_smallfloorbutton",
-    "sparkz_largefloorbutton",
-    "sparkz_smallwallswitch",
-    "sparkz_smallwallbutton",
-    "sparkz_pressureplate",
-    "sparkz_alarm"
   ]
 }
