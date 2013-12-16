@@ -12,12 +12,11 @@
   "inventoryIcon" : "sparkz_wiringstationicon.png",
   "orientations" : [
     {
-      "image" : "sparkz_wiringstation.png:<color>.off",
+      "dualImage" : "sparkz_wiringstation.png:<color>.off",
       "imagePosition" : [0, 0],
 
       "spaceScan" : 0.1,
       "anchors" : [ "bottom" ]
-
     }
   ],
 

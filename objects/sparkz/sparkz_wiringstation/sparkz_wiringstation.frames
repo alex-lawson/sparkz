@@ -4,7 +4,7 @@
     "size" : [40, 23],
     "dimensions" : [4, 1],
     "names" : [
-      [ "default.off", "default.right", "default.left", "default.both" ]
+      [ "default.both", "default.right", "default.left", "default.off" ]
     ]
   }
 }

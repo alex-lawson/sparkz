@@ -9,16 +9,24 @@ function init(args)
 end
 
 function onInteraction(args)
-  return({ "OpenCraftingInterface", { config = "/interface/windowconfig/sparkz_wiringstation.config", filter = { "sparkz" }  } })
+  return({ "OpenCraftingInterface", { config = "/interface/windowconfig/sparkz_wiringstation.config", filter = { "wire", "sparkz" }  } })
 end
 
 function checkInboundNodes()
   if not object.getInboundNodeLevel(0) and not object.getInboundNodeLevel(1) then
     output("off")
   elseif object.getInboundNodeLevel(0) and not object.getInboundNodeLevel(1) then
-    output("left")
+    if object.direction() == -1 then
+      output("right")
+    else
+      output("left")
+    end
   elseif not object.getInboundNodeLevel(0) and object.getInboundNodeLevel(1) then
-    output("right")
+    if object.direction() == -1 then
+      output("left")
+    else
+      output("right")
+    end
   else
     output("both")
   end
