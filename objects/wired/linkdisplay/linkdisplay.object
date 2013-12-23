@@ -1,0 +1,40 @@
+{
+  "objectName" : "linkdisplay",
+  "rarity" : "Common",
+  "objectType" : "wire",
+  "description" : "Numbers With Friends",
+  "shortdescription" : "Linked Display",
+  "race" : "generic",
+  "category" : "wire",
+  "price" : "500",
+  "inventoryIcon" : "linkdisplayicon.png",
+
+  "orientations" : [
+    {
+      "image" : "frame.png:<color>.none",
+      "imagePosition" : [-8, -8],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/datawire/datawire.lua", "/objects/wired/datawire/linkdisplay.lua" ],
+  "scriptDelta" : 10,
+
+  "animation" : "/objects/wired/datawire/linkdisplay.animation",
+
+  "animationParts" : {
+    "frame" : "frame.png",
+    "digits" : "digits.png"
+  },
+  "animationPosition" : [-8, -8],
+
+  "inboundNodes" : [ [-1, 0] ],
+
+  "displaySize" : 2,
+
+  "countInterval" : 1
+
+  //, "dataFormat" : "%.1f"
+}

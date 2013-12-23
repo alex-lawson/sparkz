@@ -1,0 +1,37 @@
+{
+  "objectName" : "endlesspoison",
+  "rarity" : "Common",
+  "objectType" : "wire",
+  "description" : "WHERE IS ALL THIS POISON COMING FROM???",
+  "shortdescription" : "Poison Source Pipe",
+  "race" : "generic",
+
+  "category" : "wire",
+  "price" : "300",
+
+  "inventoryIcon" : "endlesspoisonicon.png",
+  "orientations" : [
+    {
+      "image" : "endlesspoison.png:<color>.off",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "top" ],
+      "collision" : "solid"
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/endlessliquid.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "/objects/wired/endlesspoison/endlesspoison.animation",
+
+  "animationParts" : {
+    "fountain" : "endlesspoison.png"
+  },
+  "animationPosition" : [0, 0],
+
+  "inboundNodes" : [ [-1, 0] ],
+
+  "projectile" : "createpoison"
+}

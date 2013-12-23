@@ -1,6 +1,6 @@
 Sparkz, a player-created mod for Starbound.
 
-Latest release: v1.0, for Starbound Beta v Indignant Koala 11/12/2013
+Latest release: v1.1, for Starbound Beta v Offended Koala
 
 This mod was created to add wiring and logic functionality above and beyond that which is available in the vanilla game, by adding a variety of wire-interactive sensors, logic blocks, and actuators. To access the vanilla logic gates (until they are officially implemented) use my previous mod, Logic 101, available at http://www.nexusmods.com/starbound/mods/46/
 
@@ -8,7 +8,7 @@ Created by metadept. Please email any questions, suggestions or bug reports to c
 
 FEATURES
 -New Item: an alternate Wire Tool which is much easier to craft, allowing access to wiring system in the early game
--New Object: Wiring Station, used to craft logic and wiring recipes
+-New Object: Wiring Station, used to craft logic and wiring recipes (now with working indicator bulbs!)
 -New Object: Small Wall Switch (a toggle switch which also accepts wire input to activate/deactivate)
 -New Object: Small Wall Button (a momentary switch)
 -New Object: Small Floor Button (a momentary switch)
@@ -40,6 +40,10 @@ CREDITS/ACKNOWLEDGEMENTS
 -Graphics that aren't stolen from default assets and don't look like crap are by talc
 
 VERSION HISTORY
+
+v1.1
+-Added .modinfo file for Offended Koala
+-Made Wiring Station also a wired object, with two inputs to turn on bulbs
 
 v1.0
 -New graphics for Wiring Station and Wire Tool

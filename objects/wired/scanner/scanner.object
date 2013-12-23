@@ -1,0 +1,38 @@
+{
+  "objectName" : "scanner",
+  "rarity" : "Common",
+  "objectType" : "wire",  
+  "description" : "Collects useful data about entities.",
+  "shortdescription" : "Scanner",
+  "race" : "generic",
+  "category" : "wire",
+  "price" : "500",
+  "scannable" : false,
+  "printable" : false,
+
+  "apexDescription" : "It's indicating that my power level... is over nine thousand.",
+
+  "inventoryIcon" : "scannericon.png",
+  "orientations" : [
+    {
+      "image" : "scanner.png:<color>.off",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/scanner/scanner.lua" ],
+  "scriptDelta" : 20,
+
+  "animation" : "/objects/wired/switch/switchtoggle.animation",
+  "animationParts" : {
+    "switch" : "scanner.png"
+  },
+  "animationPosition" : [0, 0],
+
+  //detection area specified as rectangle
+  "detectArea" : [3.6, 0.45],
+  "detectAreaOffset" : [0.2, 0]
+}

@@ -1,6 +1,6 @@
 {
   "name" : "sparkz",
-  "version" : "Beta v. Offended Koala",
+  "version" : "Beta v. Angry Koala",
   "path" : ".",
-  "dependencies" : [ "tabularasa1.3" ]
+  "dependencies" : [ ]
 }

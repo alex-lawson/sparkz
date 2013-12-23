@@ -1,0 +1,54 @@
+{
+  "objectName" : "rockettrap",
+  "objectType" : "wire",
+  "rarity" : "Common",
+  "description" : "Fires rockets when active.",
+  "shortdescription" : "Rocket Trap",
+  "race" : "generic",
+  "category" : "wire",
+  "price" : "500",
+
+  "inventoryIcon" : "rockettrapicon.png",
+
+  "orientations" : [
+    {
+      "image" : "/objects/wired/traps/projectilewalltrap.png:default.off",
+      //"imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left" ],
+      "direction" : "right"
+    },
+    {
+      "image" : "/objects/wired/traps/projectilewalltrap.png:default.flipped.off",
+      //"imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "right" ],
+      "direction" : "left"
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/traps/projectilewalltrap.lua" ],
+  "scriptDelta" : 2,
+
+  "animation" : "/objects/wired/traps/projectilewalltrap.animation",
+  "animationParts" : {
+    "trap" : "/objects/wired/traps/projectilewalltrap.png"
+  },
+  //"animationPosition" : [0, 0],
+
+  "inboundNodes" : [ [0, 0] ],
+
+  //"damageTeam" : {
+  //  "type" : "passive"
+  //},
+
+  "fireCycle" : 1.50,
+  "projectile" : "rocket",
+  "projectileConfig" : {
+    "universalDamage" : true,
+    "power" : 3
+  },
+  "fireSounds" : [ "/sfx/gun/rocket_shot.wav" ]
+}

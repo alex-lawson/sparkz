@@ -1,0 +1,37 @@
+{
+  "objectName" : "endlesswater",
+  "rarity" : "Common",
+  "objectType" : "wire",
+  "description" : "WHERE IS ALL THIS WATER COMING FROM???",
+  "shortdescription" : "Water Source Pipe",
+  "race" : "generic",
+
+  "category" : "wire",
+  "price" : "300",
+
+  "inventoryIcon" : "endlesswatericon.png",
+  "orientations" : [
+    {
+      "image" : "endlesswater.png:<color>.off",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "top" ],
+      "collision" : "solid"
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/endlessliquid.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "/objects/wired/endlesswater/endlesswater.animation",
+
+  "animationParts" : {
+    "fountain" : "endlesswater.png"
+  },
+  "animationPosition" : [0, 0],
+
+  "inboundNodes" : [ [-1, 0] ],
+
+  "projectile" : "createwater"
+}
