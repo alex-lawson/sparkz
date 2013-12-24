@@ -1,9 +1,9 @@
 {
   "frameGrid" : {
-    "size" : [32, 12],
-    "dimensions" : [2, 1],
+    "size" : [16, 16],
+    "dimensions" : [3, 1],
     "names" : [
-      [ "default.off", "default.on" ]
+      [ "default.off", "default.maxhp", "default.currenthp" ]
     ]
   }
 }

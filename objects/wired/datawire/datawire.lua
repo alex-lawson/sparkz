@@ -7,7 +7,7 @@ function onInboundNodeChange(args)
 end
 
 function onNodeConnectionChange()
-  world.logInfo("in onNodeConnectionChange()")
+  --world.logInfo("in onNodeConnectionChange()")
   queryNodes()
 end
 

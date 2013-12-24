@@ -1,37 +1,77 @@
-function init(args)
-  self.detectArea = entity.configParameter("detectArea")
-  self.detectAreaOffset = entity.configParameter("detectAreaOffset")
-  if type(self.detectArea) == "table" then
-    --build rectangle for detection using object position and specified detectAreaOffset
+--TODO: make this implement motionsensor.lua and generalize?
+
+function init(virtual)
+  if not virtual then
+    entity.setInteractive(true)
+
+    self.detectArea = entity.configParameter("detectArea")
+    self.detectAreaOffset = entity.configParameter("detectAreaOffset")
+    if type(self.detectArea) == "table" then
+      --build rectangle for detection using object position and specified detectAreaOffset
+      if type(self.detectAreaOffset) == "table" then
+        self.detectArea = {entity.position()[1] + self.detectArea[1] + self.detectAreaOffset[1], entity.position()[2] + self.detectArea[2] + self.detectAreaOffset[2]}
+      else
+        self.detectArea = {entity.position()[1] + self.detectArea[1], entity.position()[2] + self.detectArea[2]}
+      end
+    end
+
     if type(self.detectAreaOffset) == "table" then
-      self.detectArea = {entity.position()[1] + self.detectArea[1] + self.detectAreaOffset[1], entity.position()[2] + self.detectArea[2] + self.detectAreaOffset[2]}
+      self.detectOrigin = {entity.position()[1] + self.detectAreaOffset[1], entity.position()[2] + self.detectAreaOffset[2]}
     else
-      self.detectArea = {entity.position()[1] + self.detectArea[1], entity.position()[2] + self.detectArea[2]}
+      self.detectOrigin = entity.position()
+    end
+
+    self.modes = { "maxhp", "currenthp" }
+    if storage.currentMode == nil then
+      storage.currentMode = self.modes[1]
+    end
+
+    self.initialized = false
+  end
+end
+
+function initInWorld()
+  --world.logInfo(string.format("%s initializing in world", entity.configParameter("objectName")))
+
+  updateAnimationState()
+  queryNodes()
+  self.initialized = true
+end
+
+function onInteraction()
+  cycleMode()
+end
+
+function cycleMode()
+  for i, mode in ipairs(self.modes) do
+    if mode == storage.currentMode then
+      storage.currentMode = self.modes[(i % #self.modes) + 1]
+      updateAnimationState()
+      return
     end
   end
 
-  if type(self.detectAreaOffset) == "table" then
-    self.detectOrigin = {entity.position()[1] + self.detectAreaOffset[1], entity.position()[2] + self.detectAreaOffset[2]}
-  else
-    self.detectOrigin = entity.position()
-  end
+  --previous mode invalid, default to mode 1
+  storage.currentMode = self.modes[1]
+  updateAnimationState()
+end
 
-  entity.setAnimationState("switchState", "off")
+function updateAnimationState()
+  world.logInfo(storage.currentMode)
+  entity.setAnimationState("scannerState", storage.currentMode)
 end
 
 function onDetect(entityId)
   if entityId then
-    world.callScriptedEntity(entityId, "entity.heal", 1)
-    world.callScriptedEntity(entityId, "player.heal", 1)
-
-    local sample = math.floor(world.entityHealth(entityId)[2])
-    send(sample)
-
-    entity.setAnimationState("switchState", "on")
+    local sample
+    if storage.currentMode == "currenthp" then
+      sample = math.floor(world.entityHealth(entityId)[1])
+    elseif storage.currentMode == "maxhp" then
+      sample = math.floor(world.entityHealth(entityId)[2])
+    end
+    sendData(sample, 0)
   else
-    send(0)
-
-    entity.setAnimationState("switchState", "off")
+    sendData(0, 0)
   end
 end
 
@@ -40,7 +80,6 @@ function send(value)
       callScript = "setCount", callScriptArgs = { value } })
 end
   
-
 function firstValidEntity(entityIds)
   local validTypes = {"player", "monster", "npc"}
 
@@ -55,6 +94,10 @@ function firstValidEntity(entityIds)
 end
 
 function main()
+  if not self.initialized then
+    initInWorld()
+  end
+
   local entityIds = world.entityQuery(self.detectOrigin, self.detectArea, { notAnObject = true, order = "nearest" })
   local nearestValid = firstValidEntity(entityIds)
   onDetect(nearestValid)

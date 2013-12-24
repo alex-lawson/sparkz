@@ -19,7 +19,6 @@ function initInWorld()
     entity.setAnimationState("counterState", "flipped.off")
   end
   
-
   queryNodes()
   self.initialized = true
 end

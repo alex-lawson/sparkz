@@ -1,48 +1,46 @@
 Sparkz, a player-created mod for Starbound.
 
-Latest release: v1.1, for Starbound Beta v Offended Koala
+Latest release: v2.0 PRERELEASE, for Starbound Beta v Angry Koala
 
-This mod was created to add wiring and logic functionality above and beyond that which is available in the vanilla game, by adding a variety of wire-interactive sensors, logic blocks, and actuators. To access the vanilla logic gates (until they are officially implemented) use my previous mod, Logic 101, available at http://www.nexusmods.com/starbound/mods/46/
+This mod was created to add wiring and logic functionality above and beyond that which is available in the vanilla game, by adding a variety of wire-interactive sensors, logic blocks, and actuators.
 
 Created by metadept. Please email any questions, suggestions or bug reports to cheswick13@hotmail.com.
 
 FEATURES
--New Item: an alternate Wire Tool which is much easier to craft, allowing access to wiring system in the early game
--New Object: Wiring Station, used to craft logic and wiring recipes (now with working indicator bulbs!)
--New Object: Small Wall Switch (a toggle switch which also accepts wire input to activate/deactivate)
--New Object: Small Wall Button (a momentary switch)
--New Object: Small Floor Button (a momentary switch)
--New Object: Large Floor Button (a momentary switch)
--New Object: Pressure Plate (a momentary switch which also triggers when players/items/monsters touch it)
--New Object: Alarm (a ceiling fixture which plays sound and animation when it receives a wire signal)
--New Object: Light Sensor (detects two different levels of light)
--New Object: Water Source Pipe (creates water when powered)
--New Object: Poison Source Pipe (creates poison when powered)
--New Object: Lava Source Pipe (creates lava when powered)
--New Object: Drain (drains liquids when powered)
+-Displays: Linked Display and Small Linked Display can be used to display numeric data from sensors and counters (with more to come)
+-Sensors: Light Sensor, Wind Sensor, and Thermometer can either trigger binary objects or send numeric data to displays
+-Scanner: Reads information about a nearby entity, which can be sent to a display. Interact to switch between Current HP and Max HP modes (more modes coming)
+-Counter: Uses binary signals to increment, decrement, and reset a stored value, which can then be sent to a display
+-Traps: Wall-mounted traps that fire bullets, flame, or rockets when powered! (more types coming soon)
+-Source Pipes: Used to create water, poison, or lava when powered
+-Drain (drains liquids when powered)
+-Quick Wall Button: A version of the default Small Wall Button which can be pressed rapidly - useful for incrementing Counters
+-Wired Target (experimental): Triggers wires and turns temporarily solid when hit by projectiles
+-Improvements to a few of the vanilla wire objects
 
-USAGE
-Currently, all recipes in this mod are crafted from the Wiring Station. Obtaining the Wiring Station itself without file editing requires the Tabula Rasa mod. If you want to edit into an existing player file without using Tabula Rasa, the item name is "sparkz_wiringstation"
+USAGE (for 2.0 PRERELEASE)
+-All recipes are currently test mode recipes crafted at the Tabula Rasa
+-Documentation for individual Sparkz objects can be found at http://community.playstarbound.com/index.php?resources/sparkz.117/ (in progress)
 
-To obtain the Tabula Rasa, simply 'cook' a torch in a campfire. The Tabula Rasa can then be used to craft the Wiring Station as well as a variety of other mod recipes.
-
-REQUIRED MODS
--Tabula Rasa http://community.playstarbound.com/index.php?threads/the-tabula-rasa-unified-crafting-bench-for-mods.49112/
-
-RECOMMENDED MODS
--Logic 101 http://www.nexusmods.com/starbound/mods/46/
+REQUIRED MODS (for 2.0 PRERELEASE)
+-Tabula Rasa http://community.playstarbound.com/index.php?resources/the-tabula-rasa.114/
 
 INSTALLATION
-See http://community.playstarbound.com/index.php?threads/the-proper-way-to-install-mods.41929/
+Place the /sparkz/ folder in your starbound /mods/ folder. That is all.
 
 CREDITS/ACKNOWLEDGEMENTS
 -Many scripts and assets taken with or without modification from the Starbound base assets. Much of the credit for this mod goes to the excellent development team at Chucklefish
--Graphics that aren't stolen from default assets and don't look like crap are by talc
+-Thanks to lesokyz for testing!
 
 VERSION HISTORY
 
+v2.0 PRERELEASE
+-Added "Data Wire" functionality - send numbers over wires!
+-Removed a number of objects which have been added to the base game
+-Too much stuff to list
+
 v1.1
--Added .modinfo file for Offended Koala
+-Added .modinfo file
 -Made Wiring Station also a wired object, with two inputs to turn on bulbs
 
 v1.0

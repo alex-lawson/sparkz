@@ -16,23 +16,24 @@
   "orientations" : [
     {
       "image" : "scanner.png:<color>.off",
-      "imagePosition" : [0, 0],
+      "imagePosition" : [-8, -8],
 
       "spaceScan" : 0.1,
       "anchors" : [ "background" ]
     }
   ],
 
-  "scripts" : [ "/objects/wired/scanner/scanner.lua" ],
-  "scriptDelta" : 20,
+  "scripts" : [ "/objects/wired/datawire/datawire.lua", "/objects/wired/scanner/scanner.lua" ],
+  "scriptDelta" : 10,
 
-  "animation" : "/objects/wired/switch/switchtoggle.animation",
+  "animation" : "scanner.animation",
   "animationParts" : {
-    "switch" : "scanner.png"
+    "scanner" : "scanner.png"
   },
-  "animationPosition" : [0, 0],
+  "animationPosition" : [-8, -8],
 
-  //detection area specified as rectangle
-  "detectArea" : [3.6, 0.45],
-  "detectAreaOffset" : [0.2, 0]
+  "outboundNodes" : [ [0, -1] ],
+
+  "detectArea" : 3.5,
+  "detectAreaOffset" : [0, 0]
 }
