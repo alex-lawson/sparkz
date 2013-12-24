@@ -8,7 +8,7 @@ Created by metadept. Please email any questions, suggestions or bug reports to c
 
 FEATURES
 -Displays: Linked Display and Small Linked Display can be used to display numeric data from sensors and counters (with more to come)
--Sensors: Light Sensor, Wind Sensor, and Thermometer can either trigger binary objects or send numeric data to displays
+-Sensors: Light Sensor, Wind Sensor, Thermometer and Liquid Sensor can either trigger binary wires or send numeric data to displays
 -Scanner: Reads information about a nearby entity, which can be sent to a display. Interact to switch between Current HP and Max HP modes (more modes coming)
 -Counter: Uses binary signals to increment, decrement, and reset a stored value, which can then be sent to a display
 -Traps: Wall-mounted traps that fire bullets, flame, or rockets when powered! (more types coming soon)
