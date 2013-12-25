@@ -4,6 +4,7 @@ end
 
 function onInboundNodeChange(args)
   --do we even do anything with boolean wire signals? have to think about this as an additional data channel
+  --should probably ignore it since some objects use both binary and data wires for separate functions
 end
 
 function onNodeConnectionChange()

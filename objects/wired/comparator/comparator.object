@@ -26,7 +26,8 @@
   "animation" : "comparator.animation",
 
   "animationParts" : {
-    "comparator" : "comparator.png"
+    "comparator" : "comparator.png",
+    "mode" : "modes.png"
   },
   "animationPosition" : [0, 0],
 

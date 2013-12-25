@@ -15,12 +15,11 @@
       "imagePosition" : [-8, -8],
 
       "spaceScan" : 0.1,
-      "anchors" : [ "background" ]
+      "anchors" : [ "background" ],
+
+      "direction" : "left"
     }
   ],
-
-  "scripts" : [ "/objects/wired/datawire/datawire.lua", "/objects/wired/datawire/linkdisplay.lua" ],
-  "scriptDelta" : 10,
 
   "animation" : "/objects/wired/datawire/linkdisplay.animation",
 
@@ -28,7 +27,11 @@
     "frame" : "frame.png",
     "digits" : "digits.png"
   },
+
   "animationPosition" : [-8, -8],
+
+  "scripts" : [ "/objects/wired/datawire/datawire.lua", "/objects/wired/datawire/linkdisplay.lua" ],
+  "scriptDelta" : 10,
 
   "inboundNodes" : [ [-1, 0] ],
 
