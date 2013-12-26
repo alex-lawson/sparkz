@@ -69,8 +69,6 @@ function onValidDataReceived(data, nodeId)
   else
     storage.data2 = data
   end
-
-  compare()
 end
 
 function compare()

@@ -45,8 +45,11 @@ function sendData(data, nodeId)
     end
   else
     if storage.outboundConnections[nodeId] and #storage.outboundConnections[nodeId] > 0 then 
+      --world.logInfo(storage.outboundConnections[nodeId])
       for i, entityId in ipairs(storage.outboundConnections[nodeId]) do
-        world.callScriptedEntity(entityId, "receiveData", { data, entity.id() })
+        if entityId ~= entity.id() then
+          world.callScriptedEntity(entityId, "receiveData", { data, entity.id() })
+        end
       end
     end
   end

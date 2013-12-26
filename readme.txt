@@ -7,13 +7,15 @@ This mod was created to add wiring and logic functionality above and beyond that
 Created by metadept. Please email any questions, suggestions or bug reports to cheswick13@hotmail.com.
 
 FEATURES
--Displays: Linked Display and Small Linked Display can be used to display numeric data from sensors and counters (with more to come)
--Sensors: Light Sensor, Wind Sensor, Thermometer and Liquid Sensor can either trigger binary wires or send numeric data to displays
--Scanner: Reads information about a nearby entity, which can be sent to a display. Interact to switch between Current HP and Max HP modes (more modes coming)
--Counter: Uses binary signals to increment, decrement, and reset a stored value, which can then be sent to a display
--Comparator: Compare two numeric values with >, <, and == (interact to switch modes)
--Operator: Perform addition, subtraction, multiplication and division! (interact to switch modes)
--Memory Cell: Store numeric data. The bottom nodes are for data input and output, the top nodes are used to lock input or output
+-Data Wires! Use wire connections to transfer and manipulate numeric data
+  -Displays: Linked Display and Small Linked Display can be used to display numeric data
+  -Sensors: Light Sensor, Wind Sensor, Thermometer and Liquid Sensor can either trigger binary wires or send numeric data
+  -Scanner: Reads information about a nearby entity. Interact to switch between Current HP and Max HP modes (more modes coming)
+  -Counter: Uses binary signals to increment, decrement, and reset a stored value, which can then be sent to a display
+  -Comparator: Compare two numeric values with >, <, and == (interact to switch modes)
+  -Operator: Perform addition, subtraction, multiplication and division! (interact to switch modes)
+  -Memory Cell: Store numeric data. The bottom nodes are for data input and output, the top nodes are used to lock input or output
+  -Binarizer: A simple passthrough which strips numerical data from a binary signal. This can be useful when connecting devices that use both numeric and binary data (sensors, comparators, counters)
 -Traps: Wall-mounted traps that fire bullets, flame, or rockets when powered! (more types coming soon)
 -Source Pipes: Used to create water, poison, or lava when powered
 -Drain (drains liquids when powered)

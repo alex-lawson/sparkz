@@ -63,6 +63,14 @@ function reset()
   storage.data = 0
 end
 
+function validateData(data, nodeId)
+  return type(data) == "number"
+end
+
+function onValidDataReceived(data, nodeId)
+  storage.data = data
+end
+
 function main(args)
   if not self.initialized then
     initInWorld()

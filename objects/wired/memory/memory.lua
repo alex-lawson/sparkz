@@ -4,6 +4,14 @@ function init(virtual)
       storage.data = 0
     end
 
+    if storage.lockOutbound == nil then
+      storage.lockOutbound = false
+    end
+
+    if storage.lockInbound == nil then
+      storage.lockInbound = false
+    end
+
     self.initialized = false
   end
 end
@@ -28,6 +36,9 @@ function onInteraction(args)
 end
 
 function onInboundNodeChange(args)
+  storage.lockInbound = entity.getInboundNodeLevel(1)
+  storage.lockOutbound = entity.getInboundNodeLevel(2)
+
   output()
   updateAnimationState()
 end
@@ -46,16 +57,15 @@ end
 
 function validateData(data, nodeId)
   --only receive data on node 0 and when unlocked
-  return nodeId == 0 and not entity.getInboundNodeLevel(1)
+  return nodeId == 0 and not storage.lockInbound
 end
 
 function onValidDataReceived(data, nodeId)
   storage.data = data
-  output()
 end
 
 function output()
-  if not entity.getInboundNodeLevel(2) then
+  if not storage.lockOutbound then
     sendData(storage.data, 0)
   end
 end
