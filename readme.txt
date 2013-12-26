@@ -11,8 +11,9 @@ FEATURES
 -Sensors: Light Sensor, Wind Sensor, Thermometer and Liquid Sensor can either trigger binary wires or send numeric data to displays
 -Scanner: Reads information about a nearby entity, which can be sent to a display. Interact to switch between Current HP and Max HP modes (more modes coming)
 -Counter: Uses binary signals to increment, decrement, and reset a stored value, which can then be sent to a display
--Comparator: Determine the greater of two numeric values
+-Comparator: Compare two numeric values with >, <, and == (interact to switch modes)
 -Operator: Perform addition, subtraction, multiplication and division! (interact to switch modes)
+-Memory Cell: Store numeric data. The bottom nodes are for data input and output, the top nodes are used to lock input or output
 -Traps: Wall-mounted traps that fire bullets, flame, or rockets when powered! (more types coming soon)
 -Source Pipes: Used to create water, poison, or lava when powered
 -Drain (drains liquids when powered)
