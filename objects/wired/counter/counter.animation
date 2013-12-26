@@ -4,12 +4,8 @@
       "counterState" : {
         "default" : "off",
         "states" : {
-          "off" : {
-            "frames" : 1
-          },
-          "flipped.off" : {
-            "frames" : 1
-          }
+          "off" : {},
+          "flipped.off" : {}
         }
       }
     },

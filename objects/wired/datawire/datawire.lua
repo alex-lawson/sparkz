@@ -31,9 +31,9 @@ function queryNodes()
     i = i + 1
   end
 
-  -- world.logInfo(string.format("%s finished querying %d outbound and %d inbound nodes", entity.configParameter("objectName"), entity.outboundNodeCount(), entity.inboundNodeCount()))
-  -- world.logInfo(storage.outboundConnections)
-  -- world.logInfo(storage.inboundConnections)
+  --world.logInfo(string.format("%s finished querying %d outbound and %d inbound nodes", entity.configParameter("objectName"), entity.outboundNodeCount(), entity.inboundNodeCount()))
+  --world.logInfo(storage.outboundConnections)
+  --world.logInfo(storage.inboundConnections)
 end
 
 function sendData(data, nodeId)
@@ -63,8 +63,8 @@ function receiveData(args)
     onValidDataReceived(data, nodeId)
 
     --TODO: remove for production
-    -- world.logInfo(string.format("DataWire: object received data"))
-    -- world.logInfo(data)
+    --world.logInfo(string.format("DataWire: object received data"))
+    --world.logInfo(data)
   else
     --TODO: remove for production
     --world.logInfo(string.format("DataWire: object received INVALID data"))
