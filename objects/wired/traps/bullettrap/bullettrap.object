@@ -48,7 +48,7 @@
   "projectile" : "bullet-2",
   "projectileConfig" : {
     "universalDamage" : true,
-    "power" : 3
+    "power" : 4
   },
   "fireSounds" : [ "/sfx/gun/ar1.wav" ]
 }

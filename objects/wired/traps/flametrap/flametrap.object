@@ -48,7 +48,7 @@
   "projectile" : "flame",
   "projectileConfig" : {
     "universalDamage" : true,
-    "power" : 1
+    "power" : 2
   },
   "fireSounds" : [ "/sfx/gun/fireblast.wav" ]
 }

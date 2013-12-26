@@ -48,7 +48,7 @@
   "projectile" : "rocket",
   "projectileConfig" : {
     "universalDamage" : true,
-    "power" : 3
+    "power" : 25
   },
   "fireSounds" : [ "/sfx/gun/rocket_shot.wav" ]
 }
