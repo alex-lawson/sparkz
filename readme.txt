@@ -1,6 +1,6 @@
 Sparkz, a player-created mod for Starbound.
 
-Latest release: v2.0 PRERELEASE, for Starbound Beta v Angry Koala
+Latest release: v2.0, for Starbound Beta v Angry Koala
 
 This mod was created to add wiring and logic functionality above and beyond that which is available in the vanilla game, by adding a variety of wire-interactive sensors, logic blocks, and actuators.
 
@@ -18,16 +18,15 @@ FEATURES
   -Binarizer: A simple passthrough which strips numerical data from a binary signal. This can be useful when connecting devices that use both numeric and binary data (sensors, comparators, counters)
 -Traps: Wall-mounted traps that fire bullets, flame, or rockets when powered! (more types coming soon)
 -Source Pipes: Used to create water, poison, or lava when powered
--Drain (drains liquids when powered)
 -Quick Wall Button: A version of the default Small Wall Button which can be pressed rapidly - useful for incrementing Counters
 -Wired Target (experimental): Triggers wires and turns temporarily solid when hit by projectiles
 -Improvements to a few of the vanilla wire objects
 
-USAGE (for 2.0 PRERELEASE)
--All recipes are currently test mode recipes crafted at the Tabula Rasa
--Documentation for individual Sparkz objects can be found at http://community.playstarbound.com/index.php?resources/sparkz.117/ (in progress)
+USAGE
+-Sparkz recipes are crafted from the Wiring Station or a Tabula Rasa
+-WIP documentation for individual Sparkz objects can be found at http://community.playstarbound.com/index.php?resources/sparkz.117/
 
-REQUIRED MODS (for 2.0 PRERELEASE)
+SUGGESTED MODS (for Creative release only)
 -Tabula Rasa http://community.playstarbound.com/index.php?resources/the-tabula-rasa.114/
 
 INSTALLATION
@@ -35,14 +34,19 @@ Place the /sparkz/ folder in your starbound /mods/ folder. That is all.
 
 CREDITS/ACKNOWLEDGEMENTS
 -Many scripts and assets taken with or without modification from the Starbound base assets. Much of the credit for this mod goes to the excellent development team at Chucklefish
--Thanks to lesokyz for testing!
+-Thanks to leosky for testing!
 
 VERSION HISTORY
 
-v2.0 PRERELEASE
+v2.0
 -Added "Data Wire" functionality - send numbers over wires!
--Removed a number of objects which have been added to the base game
--Too much stuff to list
+    -Displays, Sensors (4 types), Scanner, Counter, Comparator, Operator, Memory Cell, Binarizer
+-Added Traps (3 types)
+-Added a Quick Wall Button
+-Added Wired Target (WIP)
+-Improvements to a few vanilla wired objects
+-Removed a number of objects which have been added to the vanilla game
+-Many small (and large) changes and reworks
 
 v1.1
 -Added .modinfo file
