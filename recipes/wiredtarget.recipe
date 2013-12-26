@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "copperbar", "count" : 2 },
+    { "item" : "darkwoodmaterial", "count" : 10 }
+  ],
+  "output" : {
+    "item" : "wiredtarget",
+    "count" : 1
+  },
+  "groups" : [ "wiringstation", "all", "mod" ]
+}

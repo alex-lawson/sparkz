@@ -1,0 +1,10 @@
+{
+  "input" : [
+    { "item" : "copperbar", "count" : 2 }
+  ],
+  "output" : {
+    "item" : "binarizer",
+    "count" : 1
+  },
+  "groups" : [ "wiringstation", "all", "mod" ]
+}

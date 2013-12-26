@@ -1,0 +1,13 @@
+{
+  "input" : [
+    { "item" : "money", "count" : 300 },
+    { "item" : "platinumbar", "count" : 5 },
+    { "item" : "laserdiode", "count" : 1 },
+    { "item" : "circuitboard", "count" : 1 }
+  ],
+  "output" : {
+    "item" : "endlesspoison",
+    "count" : 1
+  },
+  "groups" : [ "wiringstation", "all", "mod" ]
+}

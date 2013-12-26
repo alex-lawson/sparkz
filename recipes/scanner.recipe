@@ -1,0 +1,12 @@
+{
+  "input" : [
+    { "item" : "cellmateria", "count" : 5 },
+    { "item" : "laserdiode", "count" : 1 },
+    { "item" : "circuitboard", "count" : 1 }
+  ],
+  "output" : {
+    "item" : "scanner",
+    "count" : 1
+  },
+  "groups" : [ "wiringstation", "all", "mod" ]
+}

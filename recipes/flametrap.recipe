@@ -1,0 +1,12 @@
+{
+  "input" : [
+    { "item" : "money", "count" : 400 },
+    { "item" : "laserdiode", "count" : 1 },
+    { "item" : "circuitboard", "count" : 1 }
+  ],
+  "output" : {
+    "item" : "flametrap",
+    "count" : 1
+  },
+  "groups" : [ "wiringstation", "all", "mod" ]
+}
