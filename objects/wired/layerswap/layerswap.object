@@ -1,0 +1,36 @@
+{
+  "objectName" : "layerswap",
+  "objectType" : "wire",
+  "rarity" : "Common",
+  "description" : "Mashes blocks into the background when activated.",
+  "shortdescription" : "Layer Swap Door",
+  "race" : "generic",
+  "category" : "wire",
+  "price" : "1000",
+
+  "inventoryIcon" : "layerswapicon.png",
+
+  "orientations" : [
+    {
+      "image" : "layerswap.png:default.foreground",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ],
+      "collision" : "solid"
+    }
+  ],
+
+  "scripts" : [ "layerswap.lua" ],
+  "scriptDelta" : 1,
+
+  "animation" : "layerswap.animation",
+  "animationParts" : {
+    "switch" : "layerswap.png"
+  },
+  "animationPosition" : [0, 0],
+
+  "inboundNodes" : [ [0, 0] ],
+
+  "swapHeight" : 5
+}
