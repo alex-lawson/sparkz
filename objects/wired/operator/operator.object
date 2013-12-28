@@ -2,7 +2,7 @@
   "objectName" : "operator",
   "rarity" : "Common",
   "objectType" : "wire",
-  "description" : "Smooth operator. Sometimes called an ALU.",
+  "description" : "Smoothly add, subtract, multiply or divide two numbers.",
   "shortdescription" : "Operator",
   "race" : "generic",
 
