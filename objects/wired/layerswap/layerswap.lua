@@ -7,9 +7,10 @@ function init(virtual)
       self.swapHeight = 5
     end
 
-    self.swapArea = {}
-    for y = 1, self.swapHeight do
-      self.swapArea[y] = {entity.position()[1], entity.position()[2] + y}
+    if storage.swapArea == nil then
+      for y = 1, self.swapHeight do
+        storage.swapArea[y] = {entity.position()[1], entity.position()[2] + y}
+      end
     end
 
     if storage.swapState == nil then
@@ -76,9 +77,9 @@ end
 
 function scanLayer(targetLayer)
   --world.logInfo("in scanLayer ("..targetLayer..")")
-  --world.logInfo(self.swapArea)
+  --world.logInfo(storage.swapArea)
   local scanData = {}
-  for i, pos in ipairs(self.swapArea) do
+  for i, pos in ipairs(storage.swapArea) do
     local sample = world.material(pos, targetLayer)
     if sample and sample ~= "invisitile" then
       scanData[i] = sample
@@ -93,16 +94,16 @@ end
 function breakLayer(targetLayer, dropItems)
   --world.logInfo("in breakLayer ("..targetLayer..")")
   if dropItems then
-    world.damageTiles(self.swapArea, targetLayer, entity.position(), "blockish", 9999)
+    world.damageTiles(storage.swapArea, targetLayer, entity.position(), "blockish", 9999)
   else
-    world.damageTiles(self.swapArea, targetLayer, entity.position(), "crushing", 9999)
+    world.damageTiles(storage.swapArea, targetLayer, entity.position(), "crushing", 9999)
   end
 end
 
 function placeLayer(targetLayer, blockData)
   --world.logInfo("in placeLayer ("..targetLayer..")")
   --world.logInfo(blockData)
-  for i, pos in ipairs(self.swapArea) do
+  for i, pos in ipairs(storage.swapArea) do
     if blockData[i] then
       local success = world.placeMaterial(pos, targetLayer, blockData[i])
       if not success then
