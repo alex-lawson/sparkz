@@ -1,8 +1,0 @@
-{
-  "input" : [ ],
-  "output" : {
-    "item" : "rockettrap",
-    "count" : 1
-  },
-  "groups" : [ "wiringstation", "all", "mod" ]
-}
