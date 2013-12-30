@@ -21,7 +21,7 @@
     }
   ],
 
-  "scripts" : [ "layerswap.lua" ],
+  "scripts" : [ "/objects/wired/datawire/datawire.lua", "layerswap.lua" ],
   "scriptDelta" : 1,
 
   "animation" : "layerswap.animation",

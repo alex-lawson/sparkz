@@ -8,6 +8,7 @@ function init(virtual)
     end
 
     if storage.swapArea == nil then
+      storage.swapArea = {}
       for y = 1, self.swapHeight do
         storage.swapArea[y] = {entity.position()[1], entity.position()[2] + y}
       end
@@ -29,8 +30,19 @@ function init(virtual)
       storage.fgData = {}
     end
 
+    self.previousFailureCount = { foreground = 0, background = 0 }
+
+    self.initialized = false
+
     updateAnimationState()
   end
+end
+
+function initInWorld()
+  world.logInfo(string.format("%s initializing in world", entity.configParameter("objectName")))
+
+  queryNodes()
+  self.initialized = true
 end
 
 function updateAnimationState()
@@ -44,14 +56,33 @@ end
 function onInboundNodeChange(args) 
   checkNodes()
 end
+
+oldOnNodeConnectionChange = onNodeConnectionChange
  
-function onNodeConnectionChange() 
+function onNodeConnectionChange()
+  if oldOnNodeConnectionChange then
+    oldOnNodeConnectionChange()
+  end
+
   checkNodes()
   entity.setInteractive(not entity.isInboundNodeConnected(0))
 end
 
 function checkNodes()
   swapLayer(entity.getInboundNodeLevel(0))
+end
+
+function validateData(data, nodeId)
+  world.logInfo(type(data))
+  return type(data) == "table"
+end
+
+function onValidDataReceived(data, nodeId)
+  if storage.transitionState > 0 then
+    storage.pendingAreaData = data
+  else
+    storage.swapArea = data
+  end
 end
 
 function onInteraction(args)
@@ -62,8 +93,13 @@ end
 
 function swapLayer(newState)
   if newState ~= storage.swapState then
+    world.logInfo("storage.swapArea")
+    world.logInfo(storage.swapArea)
+
     storage.swapState = newState
     storage.transitionState = 3
+
+    self.previousFailureCount = { foreground = 0, background = 0 }
 
     storage.bgData = scanLayer("background")
     storage.fgData = scanLayer("foreground")
@@ -103,14 +139,23 @@ end
 function placeLayer(targetLayer, blockData)
   --world.logInfo("in placeLayer ("..targetLayer..")")
   --world.logInfo(blockData)
+
+  --TODO: track failures and retry while failuresLastRun < failuresRunBeforeLast
+  local failureCount = 0
+
   for i, pos in ipairs(storage.swapArea) do
     if blockData[i] then
       local success = world.placeMaterial(pos, targetLayer, blockData[i])
-      if not success then
+      if success then
+        --remove data to prevent being placed again
+        blockData[i] = nil
+      else
         --world.logInfo("failed to place block in "..targetLayer)
 
         --wouldn't this be cool? but NOPE
         --world.spawnItem(blockData[i].."material", pos, 1)
+
+        failureCount = failureCount + 1
       end
     elseif targetLayer == "background" then
       local success = world.placeMaterial(pos, targetLayer, "invisitile")
@@ -119,14 +164,31 @@ function placeLayer(targetLayer, blockData)
       end
     end
   end
+
+  world.logInfo(string.format("finished placement with %d failures (%d last run)", failureCount, self.previousFailureCount[targetLayer]))
+
+  --keep calling recursively as long as placement improves with each call
+  if failureCount > 0 and failureCount ~= self.previousFailureCount[targetLayer] then
+    self.previousFailureCount[targetLayer] = failureCount
+    placeLayer(targetLayer, blockData)
+  end
 end
 
 function main()
+  if not self.initialized then
+    initInWorld()
+  end
+
   if storage.transitionState > 0 then
     if storage.transitionState == 1 then
       --place stored blocks
       placeLayer("background", storage.fgData)
       placeLayer("foreground", storage.bgData)
+
+      if storage.pendingAreaData then
+        storage.swapArea = storage.pendingAreaData
+        storage.pendingAreaData = false
+      end
     end
 
     storage.transitionState = storage.transitionState - 1

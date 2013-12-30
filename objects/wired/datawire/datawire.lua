@@ -31,16 +31,18 @@ function queryNodes()
     i = i + 1
   end
 
-  --world.logInfo(string.format("%s finished querying %d outbound and %d inbound nodes", entity.configParameter("objectName"), entity.outboundNodeCount(), entity.inboundNodeCount()))
-  --world.logInfo(storage.outboundConnections)
-  --world.logInfo(storage.inboundConnections)
+  -- world.logInfo(string.format("%s finished querying %d outbound and %d inbound nodes", entity.configParameter("objectName"), entity.outboundNodeCount(), entity.inboundNodeCount()))
+  -- world.logInfo(storage.outboundConnections)
+  -- world.logInfo(storage.inboundConnections)
 end
 
 function sendData(data, nodeId)
+  local transmitSuccess = false
+
   if nodeId == "all" then
     local i = 0
     while i < entity.outboundNodeCount() do
-      sendData(data, i)
+      transmitSuccess = transmitSuccess or sendData(data, i)
       i = i + 1
     end
   else
@@ -48,11 +50,13 @@ function sendData(data, nodeId)
       --world.logInfo(storage.outboundConnections[nodeId])
       for i, entityId in ipairs(storage.outboundConnections[nodeId]) do
         if entityId ~= entity.id() then
-          world.callScriptedEntity(entityId, "receiveData", { data, entity.id() })
+          transmitSuccess = transmitSuccess or world.callScriptedEntity(entityId, "receiveData", { data, entity.id() })
         end
       end
     end
   end
+
+  return transmitSuccess
 end
 
 function receiveData(args)
@@ -68,13 +72,15 @@ function receiveData(args)
     --TODO: remove for production
     --world.logInfo(string.format("DataWire: object received data"))
     --world.logInfo(data)
+
+    return true
   else
     --TODO: remove for production
-    --world.logInfo(string.format("DataWire: object received INVALID data"))
-    --world.logInfo(data)
+    world.logInfo(string.format("DataWire: object received INVALID data"))
+    world.logInfo(data)
+    world.logInfo(storage.inboundConnections)
+    return false
   end
-
-  return true
 end
 
 function validateData(data, nodeId)
