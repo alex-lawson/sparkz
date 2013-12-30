@@ -21,7 +21,7 @@
     }
   ],
 
-  "scripts" : [ "/objects/wired/datawire/datawire.lua", "layerswap.lua" ],
+  "scripts" : [ "/objects/wired/datawire/datawire.lua", "/objects/wired/datawire/tilemanipulation.lua", "layerswap.lua" ],
   "scriptDelta" : 1,
 
   "animation" : "layerswap.animation",
