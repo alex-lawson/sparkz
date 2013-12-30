@@ -1,6 +1,9 @@
 function init(virtual)
   if not virtual then
-    self.projectile = entity.configParameter("projectile")
+    self.projectileConfig = entity.configParameter("projectileConfig")
+    if self.projectileConfig == nil then
+      self.projectileConfig = { actionOnReap = { { action = "liquid", quantity = 700, liquidId = 1 } } }
+    end
 
     if storage.state == nil then
       output(false)
@@ -25,7 +28,7 @@ function main(args)
   if entity.getInboundNodeLevel(0) then
     output(true)
 
-    world.spawnProjectile(self.projectile, {entity.position()[1] + 0.5, entity.position()[2]}, entity.id(), {0, 1}, false, {})
+    world.spawnProjectile("createliquid", {entity.position()[1] + 0.5, entity.position()[2]}, entity.id(), {0, 1}, false, self.projectileConfig)
   else
     output(false)
   end

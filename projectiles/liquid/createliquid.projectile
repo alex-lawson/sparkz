@@ -1,20 +1,23 @@
 {
-  "projectileName" : "createwater",
-  "physics" : "grenade",
+  "projectileName" : "createliquid",
+  //"physics" : "grenade",
   "level" : 1,
   "frames" : "invisibleprojectile.png",
-  "animationCycle" : 0.5,
+  "animationCycle" : 1,
   "frameNumber" : 1,
+  "timeToLive" : 0.1,
 
   "speed" : 20,
   "fallSpeed" : 0,
+
+  "damageKind" : "silent",
 
   "actionOnReap" : [
     {
       "action" : "liquid",
       "quantity" : 3000,
-      "liquidId" : 1
+      "liquidId" : 3
     }
-  ],
-  "damageKind" : "default"
+  ]
+  
 }

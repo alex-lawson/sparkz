@@ -4,6 +4,8 @@ function init(args)
   else
     output(storage.state)
   end
+
+  self.projectileConfig = { actionOnReap = { { action = "liquid", quantity = 700, liquidId = 0 } } }
 end
 
 function output(state)
@@ -24,8 +26,9 @@ function main(args)
     pos = {entity.position(), {entity.position()[1] + 1, entity.position()[2]}, {entity.position()[1] - 1, entity.position()[2]}}
 
     if world.liquidAt(pos[1]) then
-      world.spawnProjectile("destroyliquid", pos[2], entity.id(), {-1, 0}, false, {})
-      world.spawnProjectile("destroyliquid", pos[3], entity.id(), {1, 0}, false, {})
+      world.spawnProjectile("createliquid", pos[2], entity.id(), {-1, 0}, false, self.projectileConfig)
+      world.spawnProjectile("createliquid", pos[2], entity.id(), {0, 0}, false, self.projectileConfig)
+      world.spawnProjectile("createliquid", pos[3], entity.id(), {1, 0}, false, self.projectileConfig)
     end
   else
     output(false)

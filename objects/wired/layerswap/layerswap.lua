@@ -1,6 +1,6 @@
 function init(virtual)
   if not virtual then
-    entity.setInteractive(entity.isInboundNodeConnected(0))
+    entity.setInteractive(not entity.isInboundNodeConnected(0))
 
     self.swapHeight = entity.configParameter("swapHeight")
     if self.swapHeight == nil then
@@ -46,7 +46,7 @@ end
  
 function onNodeConnectionChange() 
   checkNodes()
-  entity.setInteractive(entity.isInboundNodeConnected(0))
+  entity.setInteractive(not entity.isInboundNodeConnected(0))
 end
 
 function checkNodes()
@@ -107,6 +107,9 @@ function placeLayer(targetLayer, blockData)
       local success = world.placeMaterial(pos, targetLayer, blockData[i])
       if not success then
         --world.logInfo("failed to place block in "..targetLayer)
+
+        --wouldn't this be cool? but NOPE
+        --world.spawnItem(blockData[i].."material", pos, 1)
       end
     elseif targetLayer == "background" then
       local success = world.placeMaterial(pos, targetLayer, "invisitile")

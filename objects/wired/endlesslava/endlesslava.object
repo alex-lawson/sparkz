@@ -33,5 +33,13 @@
 
   "inboundNodes" : [ [-1, 0] ],
 
-  "projectile" : "createlava"
+  "projectileConfig" : {
+    "actionOnReap" : [
+      {
+        "action" : "liquid",
+        "liquidId" : 3,
+        "quantity" : 700
+      }
+    ]
+  }
 }

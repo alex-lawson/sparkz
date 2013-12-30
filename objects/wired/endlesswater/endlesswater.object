@@ -33,5 +33,13 @@
 
   "inboundNodes" : [ [-1, 0] ],
 
-  "projectile" : "createwater"
+  "projectileConfig" : {
+    "actionOnReap" : [
+      {
+        "action" : "liquid",
+        "liquidId" : 1,
+        "quantity" : 700
+      }
+    ]
+  }
 }

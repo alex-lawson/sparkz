@@ -33,5 +33,13 @@
 
   "inboundNodes" : [ [-1, 0] ],
 
-  "projectile" : "createpoison"
+  "projectileConfig" : {
+    "actionOnReap" : [
+      {
+        "action" : "liquid",
+        "liquidId" : 4,
+        "quantity" : 700
+      }
+    ]
+  }
 }
