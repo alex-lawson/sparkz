@@ -143,12 +143,18 @@ function placeLayer(targetLayer, blockData)
   --TODO: track failures and retry while failuresLastRun < failuresRunBeforeLast
   local failureCount = 0
 
+  world.logInfo(string.format("attempting to place blocks in %s with data:", targetLayer))
+  world.logInfo(blockData)
+
   for i, pos in ipairs(storage.swapArea) do
     if blockData[i] then
       local success = world.placeMaterial(pos, targetLayer, blockData[i])
+      getMatItemName(blockData[i])
       if success then
+        --world.logInfo(string.format("successfully placed %s in %s", blockData[i], targetLayer))
+
         --remove data to prevent being placed again
-        blockData[i] = nil
+        blockData[i] = false
       else
         --world.logInfo("failed to place block in "..targetLayer)
 
@@ -168,9 +174,42 @@ function placeLayer(targetLayer, blockData)
   world.logInfo(string.format("finished placement with %d failures (%d last run)", failureCount, self.previousFailureCount[targetLayer]))
 
   --keep calling recursively as long as placement improves with each call
-  if failureCount > 0 and failureCount ~= self.previousFailureCount[targetLayer] then
-    self.previousFailureCount[targetLayer] = failureCount
-    placeLayer(targetLayer, blockData)
+  if failureCount > 0 then
+    
+    if failureCount ~= self.previousFailureCount[targetLayer] then
+      --still improving placements
+      self.previousFailureCount[targetLayer] = failureCount
+      placeLayer(targetLayer, blockData)
+    else
+      --placements are stuck; give up and drop items
+      dropUnplacedItems(blockData)
+    end
+  end
+end
+
+function getMatItemName(matName)
+  local success = pcall(function () world.itemType(matName) end)
+  if not success then
+    success = pcall(function () world.itemType(matName.."material") end)
+    if not success then
+      world.logInfo(string.format("unable to get item name for %s", matName))
+      return false
+    else
+      return matName.."material"
+    end
+  else
+    return matName
+  end
+end
+
+function dropUnplacedItems(blockData)
+  for i, pos in ipairs(storage.swapArea) do
+    if blockData[i] then
+      local itemName = getMatItemName(blockData[i])
+      if itemName then
+        world.spawnItem(itemName, pos, 1)
+      end
+    end
   end
 end
 
