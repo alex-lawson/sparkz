@@ -31,9 +31,9 @@ function queryNodes()
     i = i + 1
   end
 
-  -- world.logInfo(string.format("%s finished querying %d outbound and %d inbound nodes", entity.configParameter("objectName"), entity.outboundNodeCount(), entity.inboundNodeCount()))
-  -- world.logInfo(storage.outboundConnections)
-  -- world.logInfo(storage.inboundConnections)
+  world.logInfo(string.format("%s finished querying %d outbound and %d inbound nodes", entity.configParameter("objectName"), entity.outboundNodeCount(), entity.inboundNodeCount()))
+  world.logInfo(storage.outboundConnections)
+  world.logInfo(storage.inboundConnections)
 end
 
 function sendData(data, nodeId)
@@ -42,15 +42,15 @@ function sendData(data, nodeId)
   if nodeId == "all" then
     local i = 0
     while i < entity.outboundNodeCount() do
-      transmitSuccess = transmitSuccess or sendData(data, i)
+      transmitSuccess = sendData(data, i) or transmitSuccess
       i = i + 1
     end
   else
     if storage.outboundConnections[nodeId] and #storage.outboundConnections[nodeId] > 0 then 
-      --world.logInfo(storage.outboundConnections[nodeId])
+      world.logInfo(storage.outboundConnections[nodeId])
       for i, entityId in ipairs(storage.outboundConnections[nodeId]) do
         if entityId ~= entity.id() then
-          transmitSuccess = transmitSuccess or world.callScriptedEntity(entityId, "receiveData", { data, entity.id() })
+          transmitSuccess = world.callScriptedEntity(entityId, "receiveData", { data, entity.id() }) or transmitSuccess
         end
       end
     end
@@ -70,8 +70,8 @@ function receiveData(args)
     onValidDataReceived(data, nodeId)
 
     --TODO: remove for production
-    --world.logInfo(string.format("DataWire: object received data"))
-    --world.logInfo(data)
+    world.logInfo(string.format("DataWire: object received data"))
+    world.logInfo(data)
 
     return true
   else
