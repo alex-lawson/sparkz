@@ -10,7 +10,7 @@
   "speed" : 20,
   "fallSpeed" : 0,
 
-  "damageKind" : "silent",
+  "damageKind" : "default",
 
   "actionOnReap" : [
     {
