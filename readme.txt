@@ -1,6 +1,6 @@
 Sparkz, a player-created mod for Starbound.
 
-Latest release: v2.0, for Starbound Beta v Angry Koala
+Latest release: v2.1, for Starbound Beta v Angry Koala
 
 This mod was created to add wiring and logic functionality above and beyond that which is available in the vanilla game, by adding a variety of wire-interactive sensors, logic blocks, and actuators.
 
@@ -16,7 +16,11 @@ FEATURES
   -Operator: Perform addition, subtraction, multiplication and division! (interact to switch modes)
   -Memory Cell: Store numeric data. The bottom nodes are for data input and output, the top nodes are used to lock input or output
   -Binarizer: A simple passthrough which strips numerical data from a binary signal. This can be useful when connecting devices that use both numeric and binary data (sensors, comparators, counters)
--Traps: Wall-mounted traps that fire bullets, flame, or rockets when powered! (more types coming soon)
+-Tile Manipulation!
+  -Freeform Survey Markers define areas for Layer Swappers or Block Scanners
+  -Layer Swapper switches background and foreground blocks in a defined area
+  -Block Scanner reads blocks in a defined area
+  -Block Printer prints scanned blocks
 -Source Pipes: Used to create water, poison, or lava when powered
 -Quick Wall Button: A version of the default Small Wall Button which can be pressed rapidly - useful for incrementing Counters
 -Wired Target (experimental): Triggers wires and turns temporarily solid when hit by projectiles
@@ -37,6 +41,16 @@ CREDITS/ACKNOWLEDGEMENTS
 -Thanks to leosky for testing!
 
 VERSION HISTORY
+
+v2.1
+-Added Freeform Survey Marker - define an arbitrary area of adjacent tiles for Block Scanners or Layer Swappers
+    -can also store areas in Memory Cells
+-Added Layer Swapper - set an area with Survey Markers, then activate to reverse the foreground and background tiles in that area. Make secret doors, trap platforms, or all kinds of things! This device should reliably conserve (not create or destroy) blocks for 'survival' play.
+-Added Block Scanner - set an area with Survey Markers, then activate to scan the foreground and background tiles and send the data to a Block Printer for printing
+    -can also store print data in Memory Cells
+-Added Block Printer - use scanned data to reproduce structures! This device (obviously) creates blocks and is not balanced for 'survival' play.
+-Removed traps - these are better implemented by other mods and didn't really fit the focus
+-Made Creative release the default, with Survival release optional
 
 v2.0
 -Added "Data Wire" functionality - send numbers over wires!

@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "petalblue", "count" : 10 },
+    { "item" : "petalyellow", "count" : 10 }
+  ],
+  "output" : {
+    "item" : "freeformmarker",
+    "count" : 20
+  },
+  "groups" : [ "wiringstation", "all", "mod" ]
+}

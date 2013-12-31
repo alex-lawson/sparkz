@@ -2,7 +2,7 @@
   "objectName" : "freeformmarker",
   "objectType" : "wire",
   "rarity" : "Common",
-  "description" : "Selects an arbitrary area of orthogonally adjacent tiles.",
+  "description" : "Selects an arbitrary area of adjacent tiles.",
   "shortdescription" : "Freeform Survey Marker",
   "race" : "generic",
   "category" : "wire",
