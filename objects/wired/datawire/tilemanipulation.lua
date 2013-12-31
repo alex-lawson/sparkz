@@ -87,11 +87,11 @@ function placeLayer(targetLayer, blockData, conserveMaterial)
     if failureCount ~= self.previousFailureCount[targetLayer] then
       --still improving placements
       self.previousFailureCount[targetLayer] = failureCount
-      placeLayer(targetLayer, blockData)
+      placeLayer(targetLayer, nextBlockData, conserveMaterial)
     else
       --placements are stuck; give up and drop items
       if conserveMaterial then
-        dropUnplacedItems(blockData)
+        dropUnplacedItems(nextBlockData)
       end
       cleanupInvisitiles()
     end
