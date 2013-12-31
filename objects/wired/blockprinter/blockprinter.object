@@ -1,0 +1,33 @@
+{
+  "objectName" : "blockprinter",
+  "objectType" : "wire",
+  "rarity" : "Common",
+  "description" : "Receives block data from a Block Scanner, then prints it in the same (relative) position.",
+  "shortdescription" : "Block Printer",
+  "race" : "generic",
+  "category" : "wire",
+  "price" : "1000",
+
+  "inventoryIcon" : "blockprintericon.png",
+
+  "orientations" : [
+    {
+      "image" : "blockprinter.png:default",
+      "imagePosition" : [0, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ ]
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/datawire/datawire.lua", "/objects/wired/datawire/tilemanipulation.lua", "blockprinter.lua" ],
+  "scriptDelta" : 1,
+
+  "animation" : "blockprinter.animation",
+  "animationParts" : {
+    "blockprinter" : "blockprinter.png"
+  },
+  "animationPosition" : [0, 0],
+
+  "inboundNodes" : [ [0, 0] ]
+}

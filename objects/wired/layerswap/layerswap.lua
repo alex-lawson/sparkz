@@ -2,16 +2,8 @@ function init(virtual)
   if not virtual then
     entity.setInteractive(not entity.isInboundNodeConnected(0))
 
-    self.swapHeight = entity.configParameter("swapHeight")
-    if self.swapHeight == nil then
-      self.swapHeight = 5
-    end
-
     if storage.tileArea == nil then
       storage.tileArea = {}
-      for y = 1, self.swapHeight do
-        storage.tileArea[y] = {entity.position()[1], entity.position()[2] + y}
-      end
     end
 
     if storage.swapState == nil then
@@ -39,7 +31,7 @@ function init(virtual)
 end
 
 function initInWorld()
-  world.logInfo(string.format("%s initializing in world", entity.configParameter("objectName")))
+  --world.logInfo(string.format("%s initializing in world", entity.configParameter("objectName")))
 
   queryNodes()
   self.initialized = true
@@ -72,9 +64,15 @@ function checkNodes()
   swapLayer(entity.getInboundNodeLevel(0))
 end
 
-function validateData(data, nodeId)
-  world.logInfo(type(data))
-  return type(data) == "table"
+function validateData(data, nodeId) 
+  if type(data) == "table" then
+    for i, pos in ipairs(data) do
+      if type(pos) ~= "table" or #pos ~= 2 then
+        return false
+      end
+    end
+  end
+  return true
 end
 
 function onValidDataReceived(data, nodeId)

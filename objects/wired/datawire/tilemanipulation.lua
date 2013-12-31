@@ -1,3 +1,21 @@
+function absTileAreaToRel(tileArea)
+  local ePos = entity.position()
+  local newTileArea = {}
+  for i, pos in ipairs(tileArea) do
+    newTileArea[i] = { pos[1] - ePos[1], pos[2] - ePos[2] }
+  end
+  return newTileArea
+end
+
+function relTileAreaToAbs(tileArea)
+  local ePos = entity.position()
+  local newTileArea = {}
+  for i, pos in ipairs(tileArea) do
+    newTileArea[i] = { pos[1] + ePos[1], pos[2] + ePos[2] }
+  end
+  return newTileArea
+end
+
 function scanLayer(targetLayer)
   --world.logInfo("in scanLayer ("..targetLayer..")")
   --world.logInfo(storage.tileArea)
@@ -43,12 +61,13 @@ function placeLayer(targetLayer, blockData)
         --remove data to prevent being placed again
         blockData[i] = false
       else
-        --world.logInfo("failed to place block in "..targetLayer)
-
-        --wouldn't this be cool? but NOPE
-        --world.spawnItem(blockData[i].."material", pos, 1)
-
-        failureCount = failureCount + 1
+        if world.material(pos, targetLayer) == blockData[i] then
+          --didn't really fail; correct tile is already here
+        else
+          --world.logInfo("failed to place block in "..targetLayer)
+          failureCount = failureCount + 1
+        end
+        
       end
     elseif targetLayer == "background" then
       local success = world.placeMaterial(pos, targetLayer, "invisitile")

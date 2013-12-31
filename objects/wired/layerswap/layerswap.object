@@ -16,8 +16,7 @@
       "imagePosition" : [0, 0],
 
       "spaceScan" : 0.1,
-      "anchors" : [ "background" ],
-      "collision" : "solid"
+      "anchors" : [ ]
     }
   ],
 
@@ -30,7 +29,5 @@
   },
   "animationPosition" : [0, 0],
 
-  "inboundNodes" : [ [0, 0] ],
-
-  "swapHeight" : 5
+  "inboundNodes" : [ [0, 0] ]
 }
