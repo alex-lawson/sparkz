@@ -2,7 +2,7 @@ function init(virtual)
   if not virtual then
     self.projectileConfig = entity.configParameter("projectileConfig")
     if self.projectileConfig == nil then
-      self.projectileConfig = { actionOnReap = { { action = "liquid", quantity = 700, liquidId = 1 } } }
+      self.projectileConfig = { actionOnReap = { { action = "liquid", quantity = 1400, liquidId = 1 } } }
     end
 
     if storage.state == nil then
