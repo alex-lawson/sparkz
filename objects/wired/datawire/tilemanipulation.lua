@@ -41,33 +41,36 @@ function breakLayer(targetLayer, dropItems)
   end
 end
 
-function placeLayer(targetLayer, blockData)
+function placeLayer(targetLayer, blockData, conserveMaterial)
+  if conserveMaterial == nil then
+    conserveMaterial = false
+  end
   --world.logInfo("in placeLayer ("..targetLayer..")")
   --world.logInfo(blockData)
 
-  --TODO: track failures and retry while failuresLastRun < failuresRunBeforeLast
+  --track failures and retry while failuresLastRun < failuresRunBeforeLast
   local failureCount = 0
+  local nextBlockData = {}
 
-  world.logInfo(string.format("attempting to place blocks in %s with data:", targetLayer))
-  world.logInfo(blockData)
+  --world.logInfo(string.format("attempting to place blocks in %s with data:", targetLayer))
+  --world.logInfo(blockData)
 
   for i, pos in ipairs(storage.tileArea) do
+    nextBlockData[i] = false
     if blockData[i] then
       local success = world.placeMaterial(pos, targetLayer, blockData[i])
-      getMatItemName(blockData[i])
       if success then
         --world.logInfo(string.format("successfully placed %s in %s", blockData[i], targetLayer))
-
-        --remove data to prevent being placed again
-        blockData[i] = false
       else
         if world.material(pos, targetLayer) == blockData[i] then
           --didn't really fail; correct tile is already here
         else
           --world.logInfo("failed to place block in "..targetLayer)
           failureCount = failureCount + 1
+
+          --add to table to be retried
+          nextBlockData[i] = blockData[i]
         end
-        
       end
     elseif targetLayer == "background" then
       local success = world.placeMaterial(pos, targetLayer, "invisitile")
@@ -77,7 +80,7 @@ function placeLayer(targetLayer, blockData)
     end
   end
 
-  world.logInfo(string.format("finished placement with %d failures (%d last run)", failureCount, self.previousFailureCount[targetLayer]))
+  --world.logInfo(string.format("finished placement with %d failures (%d last run)", failureCount, self.previousFailureCount[targetLayer]))
 
   --keep calling recursively as long as placement improves with each call
   if failureCount > 0 then
@@ -87,7 +90,9 @@ function placeLayer(targetLayer, blockData)
       placeLayer(targetLayer, blockData)
     else
       --placements are stuck; give up and drop items
-      dropUnplacedItems(blockData)
+      if conserveMaterial then
+        dropUnplacedItems(blockData)
+      end
       cleanupInvisitiles()
     end
   else

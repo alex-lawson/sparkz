@@ -28,7 +28,7 @@ function init(virtual)
 end
 
 function initInWorld()
-  world.logInfo(string.format("%s initializing in world", entity.configParameter("objectName")))
+  --world.logInfo(string.format("%s initializing in world", entity.configParameter("objectName")))
 
   queryNodes()
   self.initialized = true
@@ -80,7 +80,7 @@ function receiveSurveyTrigger(markerType, originId)
     onTrigger()
     sendSurveyResult(originId)
     local entityIds = triggerConnectedMarkers("receiveSurveyTrigger", { self.markerType, originId })
-    world.logInfo(entityIds)
+    --world.logInfo(entityIds)
 
     return true
   end
@@ -99,6 +99,7 @@ end
 function finalizeSurvey()
   world.logInfo(string.format("received positions from %d markers", #storage.scanTable))
   world.logInfo(storage.scanTable)
+  
   local transmitSuccess = sendData(storage.scanTable, "all")
   if transmitSuccess then
     smashConnectedMarkers(entity.id())

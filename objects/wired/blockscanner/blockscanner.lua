@@ -1,6 +1,6 @@
 function init(virtual)
   if not virtual then
-    entity.setInteractive(not entity.isInboundNodeConnected(0))
+    entity.setInteractive(true)
 
     if storage.tileArea == nil then
       storage.tileArea = {}
@@ -61,7 +61,6 @@ function onNodeConnectionChange()
   end
 
   checkNodes()
-  entity.setInteractive(not entity.isInboundNodeConnected(0))
 end
 
 function checkNodes()
@@ -74,14 +73,7 @@ function checkNodes()
 end
 
 function validateData(data, nodeId) 
-  if type(data) == "table" then
-    for i, pos in ipairs(data) do
-      if type(pos) ~= "table" or #pos ~= 2 then
-        return false
-      end
-    end
-  end
-  return true
+  return isAreaData(data)
 end
 
 function onValidDataReceived(data, nodeId)

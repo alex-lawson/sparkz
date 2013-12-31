@@ -64,15 +64,8 @@ function checkNodes()
   swapLayer(entity.getInboundNodeLevel(0))
 end
 
-function validateData(data, nodeId) 
-  if type(data) == "table" then
-    for i, pos in ipairs(data) do
-      if type(pos) ~= "table" or #pos ~= 2 then
-        return false
-      end
-    end
-  end
-  return true
+function validateData(data, nodeId)
+  return isAreaData(data)
 end
 
 function onValidDataReceived(data, nodeId)
@@ -91,8 +84,8 @@ end
 
 function swapLayer(newState)
   if newState ~= storage.swapState then
-    world.logInfo("storage.tileArea")
-    world.logInfo(storage.tileArea)
+    --world.logInfo("storage.tileArea")
+    --world.logInfo(storage.tileArea)
 
     storage.swapState = newState
     storage.transitionState = 3
@@ -117,8 +110,8 @@ function main()
   if storage.transitionState > 0 then
     if storage.transitionState == 1 then
       --place stored blocks
-      placeLayer("background", storage.fgData)
-      placeLayer("foreground", storage.bgData)
+      placeLayer("background", storage.fgData, true)
+      placeLayer("foreground", storage.bgData, true)
 
       if storage.pendingAreaData then
         storage.tileArea = storage.pendingAreaData

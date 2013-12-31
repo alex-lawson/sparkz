@@ -1,6 +1,6 @@
 function init(virtual)
   if not virtual then
-    entity.setInteractive(not entity.isInboundNodeConnected(0))
+    entity.setInteractive(true)
 
     if storage.tileArea == nil then
       storage.tileArea = {}
@@ -17,6 +17,9 @@ function init(virtual)
     if storage.fgData == nil then
       storage.fgData = {}
     end
+
+    self.forcePrint = true
+    self.printDelay = 0
 
     self.previousFailureCount = { foreground = 0, background = 0 }
 
@@ -53,22 +56,19 @@ function onNodeConnectionChange()
   end
 
   checkNodes()
-  entity.setInteractive(not entity.isInboundNodeConnected(0))
 end
 
 function checkNodes()
   if entity.getInboundNodeLevel(0) ~= storage.inboundWireState then
     storage.inboundWireState = entity.getInboundNodeLevel(0)
     if storage.inboundWireState then
-      doPrint()
+      initiatePrint()
     end
   end
 end
 
 function validateData(data, nodeId) 
-  if type(data) == "table" then
-    return data["tileArea"] ~= nil and data["fgData"] ~= nil and data["bgData"] ~= nil
-  end
+  return isPrintData(data)
 end
 
 function onValidDataReceived(data, nodeId)
@@ -79,12 +79,24 @@ end
 
 function onInteraction(args)
   if not storage.inboundWireState then
-    doPrint()
+    initiatePrint()
   end
 end
 
+function initiatePrint()
+  if self.forcePrint then
+    self.printDelay = 3
+    breakLayer("foreground", false)
+    breakLayer("background", false)
+  end
+
+  self.previousFailureCount = { foreground = 0, background = 0 }
+
+  doPrint()
+end
+
 function doPrint()
-  if #storage.tileArea > 0 then
+  if #storage.tileArea > 0 and self.printDelay <= 0 then
     placeLayer("background", storage.bgData)
     placeLayer("foreground", storage.fgData)
   end
@@ -93,5 +105,12 @@ end
 function main()
   if not self.initialized then
     initInWorld()
+  end
+
+  if self.printDelay > 0 then
+    self.printDelay = self.printDelay - 1
+    if self.printDelay <= 0 then
+      doPrint()
+    end
   end
 end

@@ -31,9 +31,9 @@ function queryNodes()
     i = i + 1
   end
 
-  world.logInfo(string.format("%s finished querying %d outbound and %d inbound nodes", entity.configParameter("objectName"), entity.outboundNodeCount(), entity.inboundNodeCount()))
-  world.logInfo(storage.outboundConnections)
-  world.logInfo(storage.inboundConnections)
+  --world.logInfo(string.format("%s finished querying %d outbound and %d inbound nodes", entity.configParameter("objectName"), entity.outboundNodeCount(), entity.inboundNodeCount()))
+  --world.logInfo(storage.outboundConnections)
+  --world.logInfo(storage.inboundConnections)
 end
 
 function sendData(data, nodeId)
@@ -47,7 +47,7 @@ function sendData(data, nodeId)
     end
   else
     if storage.outboundConnections[nodeId] and #storage.outboundConnections[nodeId] > 0 then 
-      world.logInfo(storage.outboundConnections[nodeId])
+      --world.logInfo(storage.outboundConnections[nodeId])
       for i, entityId in ipairs(storage.outboundConnections[nodeId]) do
         if entityId ~= entity.id() then
           transmitSuccess = world.callScriptedEntity(entityId, "receiveData", { data, entity.id() }) or transmitSuccess
@@ -69,16 +69,15 @@ function receiveData(args)
   if nodeId ~= nil and validateData(data, nodeId) then
     onValidDataReceived(data, nodeId)
 
-    --TODO: remove for production
-    world.logInfo(string.format("DataWire: object received data"))
-    world.logInfo(data)
+    --world.logInfo(string.format("DataWire: object received data"))
+    --world.logInfo(data)
 
     return true
   else
-    --TODO: remove for production
     world.logInfo(string.format("DataWire: object received INVALID data"))
     world.logInfo(data)
     world.logInfo(storage.inboundConnections)
+
     return false
   end
 end
@@ -86,6 +85,23 @@ end
 function validateData(data, nodeId)
   --to be implemented by object
   return true
+end
+
+function isAreaData(data)
+  return
+      type(data) == "table" and
+      #data > 0 and
+      data[1] and
+      type(data[1]) == "table" and
+      #data[1] == 2
+end
+
+function isPrintData(data)
+  return
+      type(data) == "table" and
+      data["tileArea"] ~= nil and
+      data["fgData"] ~= nil and
+      data["bgData"] ~= nil
 end
 
 function onValidDataReceived(data, nodeId)
